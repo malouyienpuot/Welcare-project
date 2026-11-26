@@ -118,14 +118,17 @@ def checkout(data: CheckoutRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="Only the demo payment option is enabled. Connect a payment provider for live payments.")
     subtotal = 0
     prepared = []
+    quantities = {}
     for line in data.items:
-        product = db.get(Product, line.product_id)
+        quantities[line.product_id] = quantities.get(line.product_id, 0) + line.quantity
+    for product_id, quantity in quantities.items():
+        product = db.get(Product, product_id)
         if not product:
-            raise HTTPException(status_code=404, detail=f"Product {line.product_id} was not found")
-        if line.quantity > product.stock:
+            raise HTTPException(status_code=404, detail=f"Product {product_id} was not found")
+        if quantity > product.stock:
             raise HTTPException(status_code=400, detail=f"Not enough stock for {product.name}")
-        subtotal += product.price * line.quantity
-        prepared.append((product, line.quantity))
+        subtotal += product.price * quantity
+        prepared.append((product, quantity))
     delivery = 0 if subtotal >= 2000 else 150
     order = Order(order_code="WC-" + uuid4().hex[:8].upper(), customer_name=data.customer_name,
                   email=data.email, phone=data.phone, address=data.address, subtotal=subtotal,
