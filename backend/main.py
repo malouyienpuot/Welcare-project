@@ -97,7 +97,7 @@ def health():
 
 @app.get("/api/products")
 def products(db: Session = Depends(get_db)):
-    return [p.__dict__ | {} for p in db.query(Product).all()]
+    return [{"id": p.id, "name": p.name, "description": p.description, "category": p.category, "price": p.price, "image": p.image, "stock": p.stock} for p in db.query(Product).all()]
 
 @app.post("/api/assistant")
 def assistant(payload: dict, db: Session = Depends(get_db)):
