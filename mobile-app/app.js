@@ -1,6 +1,6 @@
 // Set this to your deployed FastAPI URL, for example https://api.example.com
 // Keep it empty when the frontend and API are served from the same origin.
-const API_BASE = (window.WELCARE_API_BASE || "http://127.0.0.1:8000").replace(/\/$/, "");
+const API_BASE = (window.WELCARE_API_BASE || "").replace(/\/$/, "");
 const money = value => new Intl.NumberFormat("en-KE", {style:"currency",currency:"KES",maximumFractionDigits:0}).format(value);
 const fallbackProducts = [
 {id:1,name:"Reusable Sanitary Pad Set",description:"Comfortable, washable reusable pads for confident menstrual care.",category:"pads",price:850,image:"https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=900&q=85",stock:100},
