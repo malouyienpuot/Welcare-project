@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 from typing import Generator
 from uuid import uuid4
 
@@ -70,7 +71,8 @@ def seed_products():
 seed_products()
 
 app = FastAPI(title="WelCare SaniTech API", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+allowed_origins = [origin.strip() for origin in os.getenv("WELCARE_ALLOWED_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5500,http://127.0.0.1:5500").split(",") if origin.strip()]
+app.add_middleware(CORSMiddleware, allow_origins=allowed_origins, allow_credentials=False, allow_methods=["*"], allow_headers=["*"])
 
 def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
