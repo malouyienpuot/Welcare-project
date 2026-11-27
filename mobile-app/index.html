@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#145b4b">
+  <meta name="description" content="Shop reusable menstrual care and pocket hygiene products with WelCare SaniTech.">
+  <title>WelCare SaniTech | Care with confidence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="brand-mark">W</span><span>WelCare <b>SaniTech</b><small>CARE WITH CONFIDENCE</small></span></a>
+<nav><a href="#products">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<button class="cart-button" id="cart-open" aria-label="Open shopping cart">Cart <span id="cart-count">0</span></button></header>
+<main>
+<section class="hero"><div class="hero-copy"><span class="eyebrow">EVERYDAY CARE, MADE SIMPLE</span><h1>Feel confident.<br><em>Live freely.</em></h1><p>Thoughtful menstrual care and everyday hygiene essentials for your journey.</p><a class="primary-link" href="#products">Explore products <span>→</span></a><div class="trust"><span>✓ Comfortable care</span><span>✓ Everyday hygiene</span></div></div><div class="hero-art"><div class="art-circle"></div><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=85" alt="Personal care products"></div></section>
+<section class="benefits"><div><b>01</b><span>Carefully selected essentials</span></div><div><b>02</b><span>Simple and convenient shopping</span></div><div><b>03</b><span>Serving Kakuma and beyond</span></div></section>
+<section class="shop-section" id="products"><div class="section-heading"><div><span class="eyebrow">THE WELCARE COLLECTION</span><h2>Shop our products</h2><p>Explore products designed to support your everyday wellbeing.</p></div><div class="search-wrap"><input id="search" type="search" placeholder="Search products..." aria-label="Search products"></div></div>
+<div class="filters" role="group" aria-label="Product categories"><button class="filter active" data-category="all">All products</button><button class="filter" data-category="pads">Reusable pads</button><button class="filter" data-category="sanitizer">Hand sanitizers</button><button class="filter" data-category="bundle">Care bundles</button></div>
+<div id="product-grid" class="product-grid"><p class="loading">Loading products…</p></div><p id="product-status" class="status" aria-live="polite"></p></section>
+<section class="about" id="about"><div><span class="eyebrow">OUR PURPOSE</span><h2>Care that supports confidence.</h2></div><p>WelCare SaniTech makes reusable menstrual care and practical hygiene products easier to discover and access. We believe everyone deserves reliable information and everyday essentials that support dignity and wellbeing.</p></section>
+<section class="contact" id="contact"><div><span class="eyebrow">WE'RE HERE TO HELP</span><h2>Have a question?</h2><p>Contact the WelCare SaniTech team for product and order support.</p></div><a href="mailto:puotmalouyien@gmail.com">puotmalouyien@gmail.com ↗</a></section>
+</main>
+<footer><a class="brand footer-brand" href="#"><span class="brand-mark">W</span><span>WelCare <b>SaniTech</b><small>CARE WITH CONFIDENCE</small></span></a><span>© <span id="year"></span> WelCare SaniTech</span></footer>
+<div class="overlay" id="overlay"></div><aside class="cart-panel" id="cart-panel" aria-label="Shopping cart" aria-hidden="true"><div class="cart-head"><div><span class="eyebrow">YOUR SELECTION</span><h2>Your cart</h2></div><button id="cart-close" class="icon-button" aria-label="Close cart">×</button></div><div id="cart-lines" class="cart-lines"><p class="empty">Your cart is empty.</p></div><div class="cart-summary"><div><span>Subtotal</span><b id="cart-subtotal">KES 0</b></div><small>Delivery is KES 150; free for orders of KES 2,000 or more.</small><button id="checkout-open" class="primary-button" disabled>Continue to checkout</button></div></aside>
+<div class="modal" id="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title"><div class="modal-card"><div class="cart-head"><div><span class="eyebrow">ALMOST THERE</span><h2 id="checkout-title">Delivery details</h2></div><button id="checkout-close" class="icon-button" aria-label="Close checkout">×</button></div><form id="checkout-form"><label>Full name<input name="customer_name" required minlength="2" autocomplete="name"></label><label>Email address<input name="email" type="email" required autocomplete="email"></label><label>Phone number<input name="phone" required minlength="7" autocomplete="tel"></label><label>Delivery address<textarea name="address" required minlength="5" rows="3"></textarea></label><p class="payment-note">Payment: Demo checkout only. No card or M-Pesa PIN details are collected.</p><button class="primary-button" type="submit">Place demo order</button><p id="checkout-status" class="status" aria-live="polite"></p></form></div></div>
+</body></html>
